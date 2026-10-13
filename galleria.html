@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galleria · Nome Cognome</title>
+<meta name="description" content="Fotografie dei concerti e dei momenti musicali di Nome Cognome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stile.css">
+</head>
+<body>
+<header class="menu">
+  <a class="logo" href="index.html">Nome Cognome</a>
+  <nav>
+    <a href="index.html">Curriculum</a>
+    <a href="galleria.html" aria-current="page">Galleria</a>
+  </nav>
+</header>
+
+<main>
+  <div class="galleria-titolo">
+    <h1>Galleria</h1>
+    <p>Clicca su una foto per ingrandirla.</p>
+  </div>
+
+  <!-- Per aggiungere una foto: copia un blocco <figure>, salva l'immagine in immagini/ e cambia src, alt e didascalia -->
+  <section class="griglia">
+    <figure><img src="immagini/foto-1.jpg" alt="Concerto in teatro" loading="lazy" onerror="this.remove()"><figcaption>Concerto in teatro, 2025</figcaption></figure>
+    <figure><img src="immagini/foto-2.jpg" alt="Prove con il quartetto" loading="lazy" onerror="this.remove()"><figcaption>Prove con il quartetto</figcaption></figure>
+    <figure><img src="immagini/foto-3.jpg" alt="Dettaglio del violino" loading="lazy" onerror="this.remove()"><figcaption>Il violino da vicino</figcaption></figure>
+    <figure><img src="immagini/foto-4.jpg" alt="Sul palco con l'orchestra" loading="lazy" onerror="this.remove()"><figcaption>Con l'orchestra</figcaption></figure>
+    <figure><img src="immagini/foto-5.jpg" alt="Masterclass a Siena" loading="lazy" onerror="this.remove()"><figcaption>Masterclass a Siena</figcaption></figure>
+    <figure><img src="immagini/foto-6.jpg" alt="Premiazione del concorso" loading="lazy" onerror="this.remove()"><figcaption>Premiazione del concorso</figcaption></figure>
+  </section>
+</main>
+
+<dialog id="grande" aria-label="Foto ingrandita"><img alt=""></dialog>
+
+<footer>© 2026 Nome Cognome · <a href="index.html">Torna al curriculum</a></footer>
+
+<script>
+const dlg=document.getElementById('grande'),img=dlg.querySelector('img');
+document.querySelectorAll('.griglia figure').forEach(f=>{
+  const foto=f.querySelector('img');
+  f.tabIndex=0;
+  const apri=()=>{if(!foto)return;img.src=foto.src;img.alt=foto.alt;dlg.showModal()};
+  f.addEventListener('click',apri);
+  f.addEventListener('keydown',e=>{if(e.key==='Enter')apri()});
+});
+dlg.addEventListener('click',()=>dlg.close());
+</script>
+</body>
+</html>
