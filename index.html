@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name – Curriculum</title>
+  <meta name="description" content="Curriculum of Your Name">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="photo">
+      <span class="initials" aria-hidden="true">YN</span>
+      <!-- Put your photo at images/profile.jpg -->
+      <img src="images/profile.jpg" alt="Portrait of Your Name" onerror="this.remove()">
+    </div>
+    <h1>Your Name</h1>
+    <p class="role">Engineering student</p>
+
+    <section>
+      <h2>Contact</h2>
+      <ul class="plain">
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://github.com/yourname">github.com/yourname</a></li>
+        <li><a href="https://linkedin.com/in/yourname">linkedin.com/in/yourname</a></li>
+        <li>City, Country</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul class="tags">
+        <li>Python</li>
+        <li>C / C++</li>
+        <li>Signal processing</li>
+        <li>Linux &amp; SSH</li>
+        <li>Git</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <ul class="plain">
+        <li>Italian – native</li>
+        <li>English – C1</li>
+      </ul>
+    </section>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <section>
+      <h2>About me</h2>
+      <p>Write two or three sentences about who you are, what you study and what you are looking for.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li>
+          <h3>Job title, Company</h3>
+          <p class="when">Month Year – Month Year</p>
+          <p>What you did and what you achieved.</p>
+        </li>
+        <li>
+          <h3>Job title, Company</h3>
+          <p class="when">Month Year – Month Year</p>
+          <p>What you did and what you achieved.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ol class="timeline">
+        <li>
+          <h3>BSc in Engineering, University</h3>
+          <p class="when">Year – present</p>
+          <p>Main courses, thesis topic, grades if you want.</p>
+        </li>
+        <li>
+          <h3>High school diploma, School name</h3>
+          <p class="when">Year – Year</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="projects">
+        <article>
+          <img src="images/project1.jpg" alt="" onerror="this.remove()">
+          <h3>Project name</h3>
+          <p>One line describing the project and the tools used.</p>
+          <a href="https://github.com/yourname/project1">View on GitHub</a>
+        </article>
+        <article>
+          <img src="images/project2.jpg" alt="" onerror="this.remove()">
+          <h3>Project name</h3>
+          <p>One line describing the project and the tools used.</p>
+          <a href="https://github.com/yourname/project2">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+<!-- THE CAT: walks across the bottom of the screen, then returns after a pause -->
+<div class="cat-track" aria-hidden="true">
+  <svg class="cat" viewBox="0 0 120 70" width="120" height="70">
+    <path class="tail" d="M16 34 C2 32 2 14 12 10" />
+    <rect class="leg b1" x="22" y="46" width="8" height="20" rx="4" />
+    <rect class="leg f1" x="34" y="46" width="8" height="20" rx="4" />
+    <ellipse class="body" cx="52" cy="38" rx="35" ry="16" />
+    <rect class="leg b2" x="54" y="46" width="8" height="20" rx="4" />
+    <rect class="leg f2" x="66" y="46" width="8" height="20" rx="4" />
+    <circle class="body" cx="92" cy="28" r="15" />
+    <path class="body" d="M80 19 L82 3 L93 13 Z" />
+    <path class="body" d="M92 13 L103 3 L105 20 Z" />
+    <circle class="eye" cx="98" cy="27" r="2.4" />
+  </svg>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+:root {
+  --bg: #eaf0f6;
+  --paper: #ffffff;
+  --ink: #1d2b45;
+  --muted: #5d6b85;
+  --accent: #0e7c86;
+  --accent-soft: #d7eef0;
+  --eye: #f2b705;
+  --head: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "Newsreader", Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1727;
+    --paper: #17223a;
+    --ink: #e6ecf7;
+    --muted: #9aa8c4;
+    --accent: #4fc3cc;
+    --accent-soft: #1d3b4a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  padding: 2rem 1rem 8rem; /* bottom space for the cat */
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 { font-family: var(--head); line-height: 1.2; margin: 0; }
+
+/* ---------- Layout ---------- */
+.page {
+  max-width: 62rem;
+  margin: 0 auto;
+  background: var(--paper);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px rgba(20, 40, 80, .12);
+  display: grid;
+  grid-template-columns: 17rem 1fr;
+  overflow: hidden;
+  animation: rise .8s ease-out both; /* the one page-load animation */
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.side {
+  background: var(--accent-soft);
+  padding: 2rem 1.5rem;
+}
+
+main { padding: 2rem 2.5rem; }
+
+section + section { margin-top: 1.75rem; }
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+
+h3 { font-size: 1.05rem; font-weight: 700; }
+
+/* ---------- Sidebar ---------- */
+.photo {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.initials { font-family: var(--head); font-size: 2.6rem; color: #fff; }
+
+.side h1 { font-size: 1.7rem; text-align: center; }
+.role { text-align: center; color: var(--muted); margin: .2rem 0 1.75rem; }
+
+.plain { list-style: none; padding: 0; margin: 0; font-size: 1rem; }
+.plain li { margin-bottom: .3rem; overflow-wrap: anywhere; }
+
+.tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.tags li {
+  background: var(--paper);
+  border-radius: 999px;
+  padding: .15rem .75rem;
+  font-size: .95rem;
+}
+
+/* ---------- Timeline (experience and education are real sequences) ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  border-left: 2px solid var(--accent-soft);
+}
+.timeline li { position: relative; margin-bottom: 1.25rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 6px);
+  top: .45rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.when { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
+.timeline p:last-child { margin: .25rem 0 0; }
+
+/* ---------- Projects ---------- */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.projects article {
+  border: 1px solid var(--accent-soft);
+  border-radius: .75rem;
+  padding: 1rem;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.projects article:hover { transform: translateY(-3px); border-color: var(--accent); }
+.projects img { width: 100%; height: 8rem; object-fit: cover; border-radius: .5rem; margin-bottom: .75rem; }
+.projects p { margin: .3rem 0 .6rem; font-size: 1rem; }
+
+/* ---------- The cat ---------- */
+.cat-track {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.cat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  fill: var(--ink);
+  stroke: var(--ink);
+  animation: stroll 22s linear infinite;
+}
+
+/* walks for ~75% of the time, then waits off-screen before returning */
+@keyframes stroll {
+  0%   { transform: translateX(-140px); }
+  75%  { transform: translateX(100vw); }
+  100% { transform: translateX(100vw); }
+}
+
+.cat .eye { fill: var(--eye); stroke: none; }
+.cat .tail { fill: none; stroke-width: 6; stroke-linecap: round; transform-origin: 16px 34px; animation: wag 1.6s ease-in-out infinite; }
+.cat .body { stroke: none; }
+.cat .leg { stroke: none; transform-box: fill-box; transform-origin: 50% 0; animation: step .7s ease-in-out infinite alternate; }
+.cat .f1, .cat .b2 { animation-delay: -.7s; }
+
+/* gentle body bob is applied to the whole cat via the leg rhythm */
+@keyframes step { from { transform: rotate(-28deg); } to { transform: rotate(28deg); } }
+@keyframes wag  { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(14deg); } }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .page { grid-template-columns: 1fr; }
+  main { padding: 1.5rem; }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .page, .cat, .cat .tail, .cat .leg { animation: none; }
+  .cat { transform: translateX(1rem); }
+  .projects article { transition: none; }
+}
