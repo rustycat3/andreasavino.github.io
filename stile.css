@@ -51,6 +51,59 @@ a{color:inherit}
   display: block;
 }
 
+/* Recensioni nella homepage */
+.reviews {
+  max-width: 850px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.reviews h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.reviews-intro {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.review-list {
+  display: grid;
+  gap: 24px;
+}
+
+.review-card {
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-card h3 {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.review-stars {
+  color: #c49a45;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.review-comment {
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .reviews {
+    margin: 50px auto;
+    padding: 0 18px;
+  }
+}
+
+
 /* Curriculum */
 .curriculum{padding:6rem clamp(1.2rem,5vw,4rem);max-width:60rem;margin:auto}
 .curriculum h2,.galleria-titolo h1{font-family:var(--font-titoli);font-weight:500;font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:2.5rem}
