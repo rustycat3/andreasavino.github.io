@@ -50,56 +50,110 @@ a{color:inherit}
   border-radius: 50%;
   display: block;
 }
+/* RECENSIONI — stile elegante e raffinato */
 
-/* Recensioni nella homepage */
 .reviews {
-  max-width: 850px;
-  margin: 80px auto;
-  padding: 0 24px;
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 70px 28px;
+  text-align: center;
 }
 
 .reviews h2 {
+  margin: 0 0 14px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--testo, #29251f);
 }
 
-.reviews-intro {
-  color: #777;
-  margin-bottom: 30px;
+.reviews h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 20px auto 42px;
+  background: #b99a61;
 }
 
 .review-list {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  align-items: stretch;
 }
 
 .review-card {
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 38px 28px 32px;
+  background: #faf8f4;
+  border: 1px solid rgba(185, 154, 97, 0.22);
+  border-radius: 3px;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(40, 32, 20, 0.035);
+  transition: transform 250ms ease, box-shadow 250ms ease;
 }
 
-.review-card h3 {
-  margin: 0 0 8px;
-  font-weight: 600;
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px rgba(40, 32, 20, 0.08);
 }
 
 .review-stars {
-  color: #c49a45;
-  font-size: 1.3rem;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  color: #b18b4d;
+  font-size: 1rem;
+  letter-spacing: 5px;
 }
 
 .review-comment {
-  line-height: 1.8;
-  margin: 0;
+  margin: 0 0 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: #49433b;
 }
 
-@media (max-width: 600px) {
+.review-card strong {
+  margin-top: auto;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8d7144;
+}
+
+@media (max-width: 800px) {
   .reviews {
-    margin: 50px auto;
-    padding: 0 18px;
+    margin: 60px auto;
+    padding: 45px 22px;
+  }
+
+  .review-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .review-card {
+    padding: 30px 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-card {
+    transition: none;
+  }
+
+  .review-card:hover {
+    transform: none;
   }
 }
 
