@@ -422,6 +422,94 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+  
+/* BIGGER, MORE REALISTIC-LOOKING DECORATIVE WHIP */
+.whip {
+  position: absolute;
+  width: min(65vw, 620px);
+  height: auto;
+  right: 2%;
+  bottom: 1%;
+  opacity: .95;
+  overflow: visible;
+  transform-origin: 83% 88%;
+  animation: whipSwing 4s ease-in-out infinite alternate;
+  filter: drop-shadow(5px 8px 5px #000);
+}
+
+.whip path {
+  fill: none;
+  stroke: #211116;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.whip .handle {
+  stroke: #64152b;
+  stroke-width: 17;
+}
+
+.whip .highlight {
+  stroke: #b37b82;
+  stroke-width: 2;
+  opacity: .85;
+}
+
+@keyframes whipSwing {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(7deg); }
+}
+
+/* METALLIC CHAINS */
+.chain {
+  font-size: 30px;
+  color: #c5c0c2;
+  opacity: .85;
+  text-shadow:
+    1px 1px 1px #fff,
+    0 0 5px #aaa,
+    0 0 14px #7d1028;
+}
+
+/* LITTLE PIG DECORATIONS */
+.pig {
+  position: absolute;
+  z-index: 1;
+  font-size: clamp(25px, 4vw, 48px);
+  filter: drop-shadow(0 0 8px #b71b3c66);
+  animation: pigBob 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.pig-one {
+  left: 12%;
+  bottom: 17%;
+}
+
+.pig-two {
+  right: 13%;
+  top: 15%;
+  animation-delay: 1.2s;
+}
+
+@keyframes pigBob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+@media (max-width: 600px) {
+  .whip {
+    width: 75vw;
+    right: -10%;
+    bottom: 0;
+    opacity: .5;
+  }
+
+  .pig-one { left: 5%; bottom: 8%; }
+  .pig-two { right: 5%; top: 8%; }
+}
+
 </style>
 </head>
 
@@ -447,12 +535,57 @@ footer {
       ⛓<br>⛓<br>⛓<br>⛓<br>⛓<br>⛓
     </div>
 
-    <svg class="whip" viewBox="0 0 300 240"
-         aria-hidden="true">
-      <path class="handle" d="M220 205 L245 230"/>
-      <path d="M225 210 C190 170 240 135 180 115
-               S125 80 145 55 S100 35 40 15"/>
-    </svg>
+    
+<svg class="whip" viewBox="0 0 600 440"
+     aria-hidden="true">
+  <defs>
+    <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a64b58"/>
+      <stop offset="35%" stop-color="#41101e"/>
+      <stop offset="65%" stop-color="#17090e"/>
+      <stop offset="100%" stop-color="#7c2639"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Long curved braided leather lash -->
+  <path d="M475 365
+           C390 330 510 265 395 225
+           S250 190 300 125
+           S180 90 60 18"
+        style="stroke:#120a0d;stroke-width:12"/>
+
+  <path d="M475 365
+           C390 330 510 265 395 225
+           S250 190 300 125
+           S180 90 60 18"
+        style="stroke:url(#leather);stroke-width:7"/>
+
+  <path class="highlight"
+        d="M468 355
+           C400 320 493 267 390 232
+           S262 188 306 128
+           S190 94 68 24"/>
+
+  <!-- Textured handle -->
+  <path class="handle"
+        d="M450 340 L510 405"
+        style="stroke-linecap:round"/>
+
+  <!-- Handle grip bands -->
+  <path d="M466 360 L478 348
+           M477 372 L490 360
+           M488 384 L501 372
+           M499 396 L512 384"
+        style="stroke:#d1a0a6;stroke-width:3"/>
+
+  <!-- Decorative end cap -->
+  <circle cx="510" cy="405" r="8"
+          fill="#a62a48" stroke="#d1a0a6" stroke-width="2"/>
+</svg>
+
+
+<div class="pig pig-one" aria-hidden="true">🐷</div>
+<div class="pig pig-two" aria-hidden="true">🐽</div>
 
     <div class="content">
       <div class="eyebrow">A Private Society · Est. After Dark</div>
